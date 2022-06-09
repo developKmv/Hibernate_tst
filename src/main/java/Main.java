@@ -28,8 +28,13 @@ public class Main {
         session.beginTransaction();
 
         Query query = session.createQuery("from Test_collections");
-        List<Obj> objs = query.getResultList();
+        List objs = query.getResultList();
 
+        for (Test_collections o:(List<Test_collections>) objs) {
+            System.out.println(String.format("id: %d name: %s sum: %s cur: %s",
+                    o.getT_id(),o.getName(),o.getSum(),o.getCur()));
+        }
+         ////amend
         session.getTransaction().commit();
         session.close();
     }
