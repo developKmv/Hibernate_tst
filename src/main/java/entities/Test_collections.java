@@ -21,19 +21,50 @@ public class Test_collections {
     @Column(name = "t_id")
     private Long t_id;
 
+    @Column(name = "obj.name")
+    private String name;
+    @Column(name = "obj.\"sum\"")
+    private Integer sum;
+    @Column(name = "obj.cur")
+    private Integer cur;
 
-
-    @Columns(columns = { @Column(name = "NAME"),@Column(name = "sum"), @Column(name = "cur") })
+    /*@Columns(columns = { @Column(name = "NAME"),@Column(name = "sum"), @Column(name = "cur") })
     @Type(type = "types.ObjType")
-    private Obj obj;
+    private Obj obj;*/
 
     public Test_collections() {
     };
 
-    public Test_collections(Long t_id, Obj obj) {
+    public Test_collections(Long t_id, String name, Integer sum, Integer cur) {
         this.t_id = t_id;
-        this.obj = obj;
-    };
+        this.name = name;
+        this.sum = sum;
+        this.cur = cur;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getSum() {
+        return sum;
+    }
+
+    public void setSum(Integer sum) {
+        this.sum = sum;
+    }
+
+    public Integer getCur() {
+        return cur;
+    }
+
+    public void setCur(Integer cur) {
+        this.cur = cur;
+    }
 
     public Long getT_id() {
         return t_id;
@@ -43,11 +74,5 @@ public class Test_collections {
         this.t_id = t_id;
     }
 
-    public Obj getObj() {
-        return obj;
-    }
 
-    public void setObj(Obj obj) {
-        this.obj = obj;
-    }
 }
